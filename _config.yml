@@ -10,3 +10,6 @@ github_username:  suxue
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+    input: GFM # github favoured markdown
