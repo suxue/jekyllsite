@@ -122,3 +122,14 @@ Finally, boot this image
 
 or, using local kernel
     qemu-system-x86_64  -net nic,model=virtio,macaddr=$MAC_ADDR -net tap,vhost=off,helper=/usr/libexec/qemu-bridge-helper -kernel bzImage -append "root=/dev/vda1 tty=tty1"  -drive file=linux.img,if=virtio
+
+Example images
+--------------
+
++ linux.img(7m), with only base system
+
+    wget 'https://doc-00-a8-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/586orb76tmsmeh9a37l45kia5eg1dm2j/1408096800000/09328854719235690867/*/0B8Dry_1TaeLMMFd5QTNDOWtMSmM?h=16653014193614665626&e=download' -O - | xzcat  > linux.img
+
++ linux_net.img(25m), with tcp/ip stack, wget, openssh ..., configs are in /root
+
+    wget 'https://doc-04-a8-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/h3ritnhgltrn0o24efl05672ropib0q5/1408096800000/09328854719235690867/*/0B8Dry_1TaeLMbGNFUjFEYW51Tkk?h=16653014193614665626&e=download' -O - | xzcat > linux_net.img
