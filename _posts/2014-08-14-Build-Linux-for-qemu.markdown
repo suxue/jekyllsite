@@ -117,4 +117,8 @@ guest filesystem:
 
 Finally, boot this image
 
-	qemu-system-x86_64 -cpu host --enable-kvm  -drive file=test.img,if=virtio -vga qxl -device virtio-serial -chardev socket,path=/tmp/foo,server,nowait,id=foo  -device virtconsole,chardev=foo,name=org.fedoraproject.console.foo -kernel
+    export MAC_ADDR=00:16:3e:00:00:04
+    qemu-system-x86_64   -drive file=test.img,if=virtio -net nic,model=virtio,macaddr=$MAC_ADDR -net tap,vhost=on,helper=/usr/libexec/qemu-bridge-helper
+
+or, using local kernel
+    qemu-system-x86_64  -net nic,model=virtio,macaddr=$MAC_ADDR -net tap,vhost=off,helper=/usr/libexec/qemu-bridge-helper -kernel bzImage -append "root=/dev/vda1 tty=tty1"  -drive file=linux.img,if=virtio
