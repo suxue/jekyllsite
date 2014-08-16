@@ -1,6 +1,6 @@
 # Site settings
 title: Hao's Blog
-#email: mrfeihao.AT.gmail.com
+email: hao@fei.id.au
 description: > # this means to ignore newlines until "baseurl:"
     来一发说写就写的博客吧
 baseurl: "" # the subpath of your site, e.g. /blog/
