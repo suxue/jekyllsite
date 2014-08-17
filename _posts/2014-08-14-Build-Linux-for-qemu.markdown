@@ -134,3 +134,25 @@ linux.img(7m), with only base system
 linux_net.img(25m), with tcp/ip stack, wget, openssh ..., configs are in /root
 
     wget 'https://drive.google.com/uc?export=download&id=0B8Dry_1TaeLMbGNFUjFEYW51Tkk' -O - | xzcat > linux_net.img
+
+
+Update: User Network
+---------------------
+
+Compared to the bridge/taps approach, usermode networking is much easier but with
+a less compatible.
+
+The configuration is two-folds, from the guest's side, you should append 2
+lines to the init file to activate virtual ethernet and assign a usable ip address
+to it. This can be achieved by editing /etc/init.d/S40network
+
+Beneath `/sbin/ifup -a`, append
+
+    ip link set eth0 up
+    ip addr add 10.0.2.1/24 dev eth0
+    ip ro add default via 10.0.2.2 dev eth0 # This is the host's ip
+
+From the host's side, you will boot your image by
+`-net nic,model=virtio  -net user,hostfwd=::60022-10.0.2.1:22`, then ssh into the guest:
+
+    ssh root@127.0.0.1 -P 60022
