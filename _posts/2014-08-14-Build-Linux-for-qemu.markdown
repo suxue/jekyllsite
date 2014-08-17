@@ -139,8 +139,7 @@ linux_net.img(25m), with tcp/ip stack, wget, openssh ..., configs are in /root
 Update: User Network
 ---------------------
 
-Compared to the bridge/taps approach, usermode networking is much easier but with
-a less compatible.
+Compared to the bridge/taps approach, usermode networking is much easier..
 
 The configuration is two-folds, from the guest's side, you should append 2
 lines to the init file to activate virtual ethernet and assign a usable ip address
@@ -156,3 +155,5 @@ From the host's side, you will boot your image by
 `-net nic,model=virtio  -net user,hostfwd=::60022-10.0.2.1:22`, then ssh into the guest:
 
     ssh root@127.0.0.1 -P 60022
+
+Here is [an example image and some utility scripts](https://docs.google.com/file/d/0B8Dry_1TaeLMdFYzdEZFanlRV00/edit).
