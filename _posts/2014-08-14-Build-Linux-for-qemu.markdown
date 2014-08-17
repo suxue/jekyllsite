@@ -156,4 +156,4 @@ From the host's side, you will boot your image by
 
     ssh root@127.0.0.1 -P 60022
 
-Here is [an example image and some utility scripts](https://docs.google.com/file/d/0B8Dry_1TaeLMdFYzdEZFanlRV00/edit).
+Here is [an example image and some utility scripts](https://drive.google.com/file/d/0B8Dry_1TaeLMdFYzdEZFanlRV00/edit?usp=sharing)
