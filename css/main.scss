@@ -47,3 +47,8 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+pre {
+    white-space: pre-wrap;
+    overflow: auto;
+}
